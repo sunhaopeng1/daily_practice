@@ -1,0 +1,20 @@
+server:
+  port: 8905
+spring:
+  application:
+    name: zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8900/eureka/
+  instance:
+    hostname: localhost
+
+zuul:
+  routes:
+    route1:
+      path: /test01/**
+      serviceId: eurekaservice1
+    route2:
+      path: /test02/**
+      serviceId: eurekaservice2
